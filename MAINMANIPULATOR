@@ -1,0 +1,505 @@
+-- YbpnyFpevcg ршл Qrygn Rkrp / FgnegrePunenpgreFpevcgf
+ybpny Cynlref = tnzr:TrgFreivpr("Cynlref")
+ybpny EhaFreivpr = tnzr:TrgFreivpr("EhaFreivpr")
+ybpny Jbexfcnpr = tnzr:TrgFreivpr("Jbexfcnpr")
+
+ybpny cynlre = Cynlref.YbpnyCynlre
+ybpny cynlreThv = cynlre:JnvgSbePuvyq("CynlreThv")
+
+ybpny punenpgre = cynlre.Punenpgre be cynlre.PunenpgreNqqrq:Jnvg()
+ybpny uec = punenpgre:JnvgSbePuvyq("UhznabvqEbbgCneg")
+ybpny uhznabvq = punenpgre:JnvgSbePuvyq("Uhznabvq")
+
+cynlre.PunenpgreNqqrq:Pbaarpg(shapgvba(arjPune)
+	punenpgre = arjPune
+	uec = punenpgre:JnvgSbePuvyq("UhznabvqEbbgCneg")
+	uhznabvq = punenpgre:JnvgSbePuvyq("Uhznabvq")
+raq)
+
+--------------------------------------------------------------------------------
+-- 1. Юыфрмъхс THV
+--------------------------------------------------------------------------------
+ybpny fperraThv = Vafgnapr.arj("FperraThv")
+fperraThv.Anzr = "NovyvglThv"
+fperraThv.ErfrgBaFcnja = gehr
+fperraThv.Cnerag = cynlreThv
+
+ybpny senzr = Vafgnapr.arj("Senzr")
+senzr.Fvmr = HQvz2.arj(0, 220, 0, 435)
+senzr.Cbfvgvba = HQvz2.arj(0.02, 0, 0.2, 0)
+senzr.OnpxtebhaqPbybe3 = Pbybe3.sebzETO(30, 30, 35)
+senzr.ObeqreFvmrCvkry = 0
+senzr.Cnerag = fperraThv
+
+ybpny senzrPbeare = Vafgnapr.arj("HVPbeare")
+senzrPbeare.PbeareEnqvhf = HQvz.arj(0, 10)
+senzrPbeare.Cnerag = senzr
+
+ybpny yvfgYnlbhg = Vafgnapr.arj("HVYvfgYnlbhg")
+yvfgYnlbhg.Cnqqvat = HQvz.arj(0, 5)
+yvfgYnlbhg.UbevmbagnyNyvtazrag = Rahz.UbevmbagnyNyvtazrag.Pragre
+yvfgYnlbhg.IregvpnyNyvtazrag = Rahz.IregvpnyNyvtazrag.Pragre
+yvfgYnlbhg.FbegBeqre = Rahz.FbegBeqre.YnlbhgBeqre
+yvfgYnlbhg.Cnerag = senzr
+
+ybpny shapgvba perngrOhggba(anzr, grkg, beqre)
+	ybpny oga = Vafgnapr.arj("GrkgOhggba")
+	oga.Anzr = anzr
+	oga.Fvmr = HQvz2.arj(0, 200, 0, 40)
+	oga.OnpxtebhaqPbybe3 = Pbybe3.sebzETO(50, 50, 60)
+	oga.GrkgPbybe3 = Pbybe3.sebzETO(255, 255, 255)
+	oga.Sbag = Rahz.Sbag.FbheprFnafObyq
+	oga.GrkgFvmr = 15
+	oga.Grkg = grkg .. " [ОЗЧШ]"
+	oga.YnlbhgBeqre = beqre
+	oga.Cnerag = senzr
+
+	ybpny pbeare = Vafgnapr.arj("HVPbeare")
+	pbeare.PbeareEnqvhf = HQvz.arj(0, 6)
+	pbeare.Cnerag = oga
+
+	erghea oga
+raq
+
+ybpny hcOhggba = perngrOhggba("HcOhggba", "Оосэв", 1)
+ybpny oynpxUbyrOhggba = perngrOhggba("OynpxUbyrOhggba", "Дтэъмл рзэм", 2)
+ybpny fuvryqOhggba = perngrOhggba("FuvryqOhggba", "Ёхя", 3)
+ybpny gbeanqbOhggba = perngrOhggba("GbeanqbOhggba", "🌀 Ющсэд", 4)
+ybpny zntargOhggba = perngrOhggba("ZntargOhggba", "🧲 Щмпъхя", 5)
+ybpny qhyqnpubxOhggba = perngrOhggba("QhyqnpubxOhggba", "🔨 Qhyqnpubx", 6)
+ybpny chfuOhggba = perngrOhggba("ChfuOhggba", "Офэзо / Яышчмъхс", 7)
+ybpny sverjbexOhggba = perngrOhggba("SverjbexOhggba", "Бсцсэосэч", 8)
+ybpny nezntrqqbaOhggba = perngrOhggba("NezntrqqbaOhggba", "⚡ Мэщмпсррыъ", 9)
+
+--------------------------------------------------------------------------------
+-- 2. Шыпхчм юьыюынъыюясц
+--------------------------------------------------------------------------------
+ybpny vfHcNpgvir = snyfr
+ybpny vfOynpxUbyrNpgvir = snyfr
+ybpny fvatyrZbqr = avy
+
+ybpny eraqrePbaarpgvba = avy
+ybpny cnegQngn = frgzrgngnoyr({}, { __zbqr = "x" })
+ybpny pnpurqCnegf = {}
+ybpny ynfgPnpurHcqngr = 0
+
+ybpny ZNK_ENQVHF = 1000
+
+ybpny shapgvba pynvzCulfvpf(cneg)
+	vs frguvqqracebcregl gura
+		cpnyy(shapgvba()
+			frguvqqracebcregl(cynlre, "ZnkvzhzFvzhyngvbaEnqvhf", ZNK_ENQVHF)
+			frguvqqracebcregl(cynlre, "FvzhyngvbaEnqvhf", ZNK_ENQVHF)
+		raq)
+	raq
+	vs cneg:VfN("OnfrCneg") naq abg cneg.Napuberq gura
+		-- Ьэсрыяоэмёмсщ бхфхдсючхц фмъыю хпэычм
+		cneg.PnaPbyyvqr = snyfr 
+	raq
+raq
+
+ybpny shapgvba erfgberCulfvpf(cneg)
+	vs cneg naq cneg:VfN("OnfrCneg") gura
+		cneg.PnaPbyyvqr = gehr
+		cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = avy raq)
+	raq
+raq
+
+ybpny shapgvba pnaPbagebyCneg(cneg)
+	vs abg cneg be abg cneg.Cnerag be abg cneg:VfN("OnfrCneg") be cneg.Napuberq gura
+		erghea snyfr
+	raq
+	vs cneg:VfQrfpraqnagBs(punenpgre) gura
+		erghea snyfr
+	raq
+	erghea (cneg.Cbfvgvba - uec.Cbfvgvba).Zntavghqr <= ZNK_ENQVHF
+raq
+
+ybpny shapgvba trgPbagebyyrqCnegf()
+	ybpny abj = bf.pybpx()
+	vs abj - ynfgPnpurHcqngr > 0.8 gura
+		ynfgPnpurHcqngr = abj
+		gnoyr.pyrne(pnpurqCnegf)
+		sbe _, bow va vcnvef(Jbexfcnpr:TrgQrfpraqnagf()) qb
+			vs pnaPbagebyCneg(bow) gura
+				gnoyr.vafreg(pnpurqCnegf, bow)
+			raq
+		raq
+	raq
+	erghea pnpurqCnegf
+raq
+
+ybpny shapgvba hcqngrOhggbafHV()
+	hcOhggba.Grkg = "Оосэв " .. (vfHcNpgvir naq "[ОЧШ]" be "[ОЗЧШ]")
+	hcOhggba.OnpxtebhaqPbybe3 = vfHcNpgvir naq Pbybe3.sebzETO(46, 139, 87) be Pbybe3.sebzETO(50, 50, 60)
+
+	oynpxUbyrOhggba.Grkg = "Дтэъмл рзэм " .. (vfOynpxUbyrNpgvir naq "[ОЧШ]" be "[ОЗЧШ]")
+	oynpxUbyrOhggba.OnpxtebhaqPbybe3 = vfOynpxUbyrNpgvir naq Pbybe3.sebzETO(139, 0, 0) be Pbybe3.sebzETO(50, 50, 60)
+
+	fuvryqOhggba.Grkg = "Ёхя " .. (fvatyrZbqr == "Fuvryq" naq "[ОЧШ]" be "[ОЗЧШ]")
+	fuvryqOhggba.OnpxtebhaqPbybe3 = fvatyrZbqr == "Fuvryq" naq Pbybe3.sebzETO(0, 102, 204) be Pbybe3.sebzETO(50, 50, 60)
+
+	gbeanqbOhggba.Grkg = "🌀 Ющсэд " .. (fvatyrZbqr == "Gbeanqb" naq "[ОЧШ]" be "[ОЗЧШ]")
+	gbeanqbOhggba.OnpxtebhaqPbybe3 = fvatyrZbqr == "Gbeanqb" naq Pbybe3.sebzETO(148, 0, 211) be Pbybe3.sebzETO(50, 50, 60)
+
+	zntargOhggba.Grkg = "🧲 Щмпъхя " .. (fvatyrZbqr == "Zntarg" naq "[ОЧШ]" be "[ОЗЧШ]")
+	zntargOhggba.OnpxtebhaqPbybe3 = fvatyrZbqr == "Zntarg" naq Pbybe3.sebzETO(218, 165, 32) be Pbybe3.sebzETO(50, 50, 60)
+
+	qhyqnpubxOhggba.Grkg = "🔨 Qhyqnpubx " .. (fvatyrZbqr == "Qhyqnpubx" naq "[ОЧШ]" be "[ОЗЧШ]")
+	qhyqnpubxOhggba.OnpxtebhaqPbybe3 = fvatyrZbqr == "Qhyqnpubx" naq Pbybe3.sebzETO(205, 92, 92) be Pbybe3.sebzETO(50, 50, 60)
+
+	chfuOhggba.Grkg = "Офэзо / Яышчмъхс [ОЗЧШ]"
+	chfuOhggba.OnpxtebhaqPbybe3 = Pbybe3.sebzETO(50, 50, 60)
+
+	sverjbexOhggba.Grkg = "Бсцсэосэч [ОЗЧШ]"
+	sverjbexOhggba.OnpxtebhaqPbybe3 = Pbybe3.sebzETO(50, 50, 60)
+
+	nezntrqqbaOhggba.Grkg = "⚡ Мэщмпсррыъ [ОЗЧШ]"
+	nezntrqqbaOhggba.OnpxtebhaqPbybe3 = Pbybe3.sebzETO(50, 50, 60)
+raq
+
+ybpny shapgvba fgbcNyy()
+	vs eraqrePbaarpgvba gura
+		eraqrePbaarpgvba:Qvfpbaarpg()
+		eraqrePbaarpgvba = avy
+	raq
+	
+	sbe bow, _ va cnvef(cnegQngn) qb
+		vs glcrbs(bow) == "Vafgnapr" naq bow.Cnerag gura
+			erfgberCulfvpf(bow)
+		raq
+	raq
+	
+	gnoyr.pyrne(cnegQngn)
+	gnoyr.pyrne(pnpurqCnegf)
+	ynfgPnpurHcqngr = 0
+	vfHcNpgvir = snyfr
+	vfOynpxUbyrNpgvir = snyfr
+	fvatyrZbqr = avy
+	hcqngrOhggbafHV()
+raq
+
+ybpny shapgvba pyrneFvatyrZbqrf()
+	fvatyrZbqr = avy
+raq
+
+--------------------------------------------------------------------------------
+-- ЫЮЪЫОЪЫЦ ГХЧШ ЫНЭМНЫЯЧХ БХФХЧХ
+--------------------------------------------------------------------------------
+ybpny shapgvba fgnegYbbcVsArrqrq()
+	vs eraqrePbaarpgvba gura erghea raq
+
+	ybpny gvzrRyncfrq = 0
+	eraqrePbaarpgvba = EhaFreivpr.CerFvzhyngvba:Pbaarpg(shapgvba(qg)
+		vs abg uec be abg uec.Cnerag be abg punenpgre:VfQrfpraqnagBs(Jbexfcnpr) gura erghea raq
+		gvzrRyncfrq = gvzrRyncfrq + qg
+		ybpny pragreCbf = uec.Cbfvgvba
+		ybpny cnegf = trgPbagebyyrqCnegf()
+
+		------------------------------------------------------------------------
+		-- ЧЫЩНХЪХЭАСЩЗС ЭСУХЩЗ (Оосэв + Дтэъмл рзэм)
+		------------------------------------------------------------------------
+		vs vfHcNpgvir be vfOynpxUbyrNpgvir gura
+			sbe _, bow va vcnvef(cnegf) qb
+				vs bow naq bow.Cnerag gura
+					pynvzCulfvpf(bow)
+
+					vs abg cnegQngn[bow] gura
+						cnegQngn[bow] = {
+							gnetrgUrvtug = zngu.enaqbz(15, 95),
+							fjnlBssfrg = zngu.enaqbz() * zngu.cv * 2,
+							enqvhf = zngu.enaqbz(10, 150),
+							natyrBssfrg = zngu.enq(zngu.enaqbz(0, 360)),
+							fcrrq = zngu.enaqbz(2, 4)
+						}
+						cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = CulfvpnyCebcregvrf.arj(0.001, 0, 0) raq)
+					raq
+
+					ybpny qngn = cnegQngn[bow]
+					ybpny gnetrgIryK = bow.NffrzoylYvarneIrybpvgl.K * 0.8
+					ybpny gnetrgIryL = bow.NffrzoylYvarneIrybpvgl.L
+					ybpny gnetrgIryM = bow.NffrzoylYvarneIrybpvgl.M * 0.8
+
+					vs vfOynpxUbyrNpgvir gura
+						ybpny pheeragNatyr = qngn.natyrBssfrg + (gvzrRyncfrq * qngn.fcrrq)
+						ybpny gnetrgCbfU = pragreCbf + Irpgbe3.arj(
+							zngu.pbf(pheeragNatyr) * qngn.enqvhf,
+							0,
+							zngu.fva(pheeragNatyr) * qngn.enqvhf
+						)
+						ybpny qveU = (gnetrgCbfU - Irpgbe3.arj(bow.Cbfvgvba.K, 0, bow.Cbfvgvba.M)) * 10
+						gnetrgIryK = qveU.K
+						gnetrgIryM = qveU.M
+					raq
+
+					vs vfHcNpgvir gura
+						ybpny ubireL = zngu.fva(bf.pybpx() * 2 + qngn.fjnlBssfrg) * 1.5
+						ybpny gnetrgL = pragreCbf.L + qngn.gnetrgUrvtug + ubireL
+						ybpny qvssL = gnetrgL - bow.Cbfvgvba.L
+						gnetrgIryL = zngu.pynzc(qvssL * 12, -100, 100)
+					raq
+
+					cpnyy(shapgvba()
+						bow.NffrzoylYvarneIrybpvgl = Irpgbe3.arj(gnetrgIryK, gnetrgIryL, gnetrgIryM)
+						bow.NffrzoylNathyneIrybpvgl = Irpgbe3.arj(0.01, 0.01, 0.01)
+					raq)
+				raq
+			raq
+			erghea
+		raq
+
+		------------------------------------------------------------------------
+		-- АЪХЧМШИЪЗС ЭСУХЩЗ
+		------------------------------------------------------------------------
+		vs fvatyrZbqr == "Fuvryq" gura
+			ybpny fuvryqGvzr = gvzrRyncfrq * 3
+			sbe _, bow va vcnvef(cnegf) qb
+				vs bow naq bow.Cnerag gura
+					pynvzCulfvpf(bow)
+					vs abg cnegQngn[bow] gura
+						cnegQngn[bow] = {
+							enqvhf = zngu.enaqbz(12, 20),
+							cuv = zngu.enaqbz() * zngu.cv * 2,
+							gurgn = zngu.enaqbz() * zngu.cv
+						}
+						cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = CulfvpnyCebcregvrf.arj(0.001, 0, 0) raq)
+					raq
+					ybpny qngn = cnegQngn[bow]
+					ybpny cuv = qngn.cuv + fuvryqGvzr
+					ybpny gnetrgCbf = pragreCbf + Irpgbe3.arj(
+						qngn.enqvhf * zngu.fva(qngn.gurgn) * zngu.pbf(cuv),
+						qngn.enqvhf * zngu.pbf(qngn.gurgn),
+						qngn.enqvhf * zngu.fva(qngn.gurgn) * zngu.fva(cuv)
+					)
+					cpnyy(shapgvba()
+						bow.NffrzoylYvarneIrybpvgl = (gnetrgCbf - bow.Cbfvgvba) * 15
+						bow.NffrzoylNathyneIrybpvgl = Irpgbe3.arj(5, 5, 5)
+					raq)
+				raq
+			raq
+
+		ryfrvs fvatyrZbqr == "Gbeanqb" gura
+			ybpny gbeanqbGvzr = gvzrRyncfrq * 5
+			sbe _, bow va vcnvef(cnegf) qb
+				vs bow naq bow.Cnerag gura
+					pynvzCulfvpf(bow)
+					vs abg cnegQngn[bow] gura
+						cnegQngn[bow] = {
+							urvtugBssfrg = zngu.enaqbz(0, 100),
+							natyrBssfrg = zngu.enaqbz() * zngu.cv * 2,
+							fcrrq = zngu.enaqbz(2, 6)
+						}
+						cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = CulfvpnyCebcregvrf.arj(0.001, 0, 0) raq)
+					raq
+					ybpny qngn = cnegQngn[bow]
+					ybpny pheeragUrvtug = (qngn.urvtugBssfrg + gbeanqbGvzr * 10) % 120
+					ybpny enqvhfNgUrvtug = 5 + (pheeragUrvtug * 0.4)
+					ybpny pheeragNatyr = qngn.natyrBssfrg + (gbeanqbGvzr * qngn.fcrrq)
+
+					ybpny gnetrgCbf = pragreCbf + Irpgbe3.arj(
+						zngu.pbf(pheeragNatyr) * enqvhfNgUrvtug,
+						pheeragUrvtug - 10,
+						zngu.fva(pheeragNatyr) * enqvhfNgUrvtug
+					)
+					cpnyy(shapgvba()
+						bow.NffrzoylYvarneIrybpvgl = (gnetrgCbf - bow.Cbfvgvba) * 18
+						bow.NffrzoylNathyneIrybpvgl = Irpgbe3.arj(0, 20, 0)
+					raq)
+				raq
+			raq
+
+		ryfrvs fvatyrZbqr == "Zntarg" gura
+			ybpny ybbxIrpgbe = uec.PSenzr.YbbxIrpgbe
+			ybpny zntargCbvag = pragreCbf + (ybbxIrpgbe * 15)
+			sbe _, bow va vcnvef(cnegf) qb
+				vs bow naq bow.Cnerag gura
+					pynvzCulfvpf(bow)
+					vs abg cnegQngn[bow] gura
+						cnegQngn[bow] = {
+							fcernq = Irpgbe3.arj(zngu.enaqbz(-5, 5), zngu.enaqbz(-5, 5), zngu.enaqbz(-5, 5))
+						}
+						cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = CulfvpnyCebcregvrf.arj(0.001, 0, 0) raq)
+					raq
+					ybpny gnetrgCbf = zntargCbvag + cnegQngn[bow].fcernq
+					cpnyy(shapgvba()
+						bow.NffrzoylYvarneIrybpvgl = (gnetrgCbf - bow.Cbfvgvba) * 22
+						bow.NffrzoylNathyneIrybpvgl = Irpgbe3.mreb
+					raq)
+				raq
+			raq
+
+		ryfrvs fvatyrZbqr == "Qhyqnpubx" gura
+			ybpny ps = uec.PSenzr
+			ybpny gbgnyCnegf = #cnegf
+			
+			vs gbgnyCnegf > 0 gura
+				-- Гсъяэ пышыоз щышыям юяэыпы ьсэср хпэычыщ ъм озюыяс
+				ybpny unzzreUrnqPragre = ps.Cbfvgvba + (ps.YbbxIrpgbe * 100) + Irpgbe3.arj(0, 30, 0)
+				ybpny evtugQve = ps.EvtugIrpgbe
+				ybpny ybbxQve = ps.YbbxIrpgbe
+				ybpny hcQve = Irpgbe3.arj(0, 1, 0)
+
+				-- Эмфрсшлсщ ншычх: 30% ъм эадча, 70% ъм щышыя
+				ybpny unaqyrPbhag = zngu.znk(1, zngu.sybbe(gbgnyCnegf * 0.3))
+				ybpny urnqPbhag = gbgnyCnegf - unaqyrPbhag
+
+				-- Юсячм ршл пышыоз щышыям (Ехэхъм k Озюыям k Яышёхъм)
+				ybpny jvqguFgrc = 6  -- Ьы ыюх Evtug
+				ybpny urvtugFgrc = 6 -- Ьы ыюх Hc
+				ybpny qrcguFgrc = 6  -- Ьы ыюх Ybbx
+				
+				ybpny znkJvqgu = 7 -- Ншычыо о ехэхъа
+
+				sbe v, bow va vcnvef(cnegf) qb
+					vs bow naq bow.Cnerag gura
+						pynvzCulfvpf(bow)
+						vs abg cnegQngn[bow] gura
+							cnegQngn[bow] = gehr
+							cpnyy(shapgvba() bow.PhfgbzCulfvpnyCebcregvrf = CulfvpnyCebcregvrf.arj(0.001, 0, 0) raq)
+						raq
+
+						ybpny gnetrgCbf
+						
+						vs v <= unaqyrPbhag gura
+							-- 1. Эачылячм: юяэыпы ьэлщмл осэяхчмшиъмл шхъхл оъхф
+							ybpny unaqyrBssfrg = (v / unaqyrPbhag) * 80
+							gnetrgCbf = unzzreUrnqPragre - (hcQve * unaqyrBssfrg)
+						ryfr
+							-- 2. Пышыом щышыям: Яэтвщсэъзц ьэлщыапышиъхч
+							ybpny vqk = v - unaqyrPbhag
+							
+							ybpny kVaqrk = ((vqk - 1) % znkJvqgu) - zngu.sybbe(znkJvqgu / 2)
+							ybpny lVaqrk = zngu.sybbe((vqk - 1) / (znkJvqgu * 3))
+							ybpny mVaqrk = zngu.sybbe(((vqk - 1) / znkJvqgu) % 3) - 1
+
+							gnetrgCbf = unzzreUrnqPragre 
+								+ (evtugQve * (kVaqrk * jvqguFgrc))
+								+ (hcQve * (lVaqrk * urvtugFgrc))
+								+ (ybbxQve * (mVaqrk * qrcguFgrc))
+						raq
+
+						cpnyy(shapgvba()
+							ybpny qvfg = (gnetrgCbf - bow.Cbfvgvba)
+							bow.NffrzoylYvarneIrybpvgl = qvfg * 14
+							bow.NffrzoylNathyneIrybpvgl = Irpgbe3.mreb
+						raq)
+					raq
+				raq
+			raq
+		raq
+	raq)
+raq
+
+--------------------------------------------------------------------------------
+-- 3. Чъыьчх х юынзяхл
+--------------------------------------------------------------------------------
+hcOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	pyrneFvatyrZbqrf()
+	vfHcNpgvir = abg vfHcNpgvir
+	hcqngrOhggbafHV()
+	vs vfHcNpgvir be vfOynpxUbyrNpgvir gura
+		fgnegYbbcVsArrqrq()
+	ryfr
+		fgbcNyy()
+	raq
+raq)
+
+oynpxUbyrOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	pyrneFvatyrZbqrf()
+	vfOynpxUbyrNpgvir = abg vfOynpxUbyrNpgvir
+	hcqngrOhggbafHV()
+	vs vfHcNpgvir be vfOynpxUbyrNpgvir gura
+		fgnegYbbcVsArrqrq()
+	ryfr
+		fgbcNyy()
+	raq
+raq)
+
+ybpny shapgvba npgvingrFvatyrZbqr(zbqrAnzr)
+	fgbcNyy()
+	fvatyrZbqr = zbqrAnzr
+	hcqngrOhggbafHV()
+	fgnegYbbcVsArrqrq()
+raq
+
+fuvryqOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	vs fvatyrZbqr == "Fuvryq" gura fgbcNyy() ryfr npgvingrFvatyrZbqr("Fuvryq") raq
+raq)
+
+gbeanqbOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	vs fvatyrZbqr == "Gbeanqb" gura fgbcNyy() ryfr npgvingrFvatyrZbqr("Gbeanqb") raq
+raq)
+
+zntargOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	vs fvatyrZbqr == "Zntarg" gura fgbcNyy() ryfr npgvingrFvatyrZbqr("Zntarg") raq
+raq)
+
+qhyqnpubxOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	vs fvatyrZbqr == "Qhyqnpubx" gura fgbcNyy() ryfr npgvingrFvatyrZbqr("Qhyqnpubx") raq
+raq)
+
+-- Ыръыэмфыозс юьыюынъыюях
+chfuOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	fgbcNyy()
+	vs abg uec be abg uec.Cnerag be abg punenpgre:VfQrfpraqnagBs(Jbexfcnpr) gura erghea raq
+	ybpny pragreCbf = uec.Cbfvgvba
+	sbe _, bow va vcnvef(Jbexfcnpr:TrgQrfpraqnagf()) qb
+		vs pnaPbagebyCneg(bow) gura
+			erfgberCulfvpf(bow)
+			ybpny qrygn = bow.Cbfvgvba - pragreCbf
+			ybpny qverpgvba = qrygn.Zntavghqr > 0 naq qrygn.Havg be Irpgbe3.arj(0, 1, 0)
+			cpnyy(shapgvba()
+				bow.NffrzoylYvarneIrybpvgl = (qverpgvba + Irpgbe3.arj(0, 0.3, 0)).Havg * 250
+			raq)
+		raq
+	raq
+raq)
+
+sverjbexOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	fgbcNyy()
+	vs abg uec be abg uec.Cnerag be abg punenpgre:VfQrfpraqnagBs(Jbexfcnpr) gura erghea raq
+	sbe _, bow va vcnvef(Jbexfcnpr:TrgQrfpraqnagf()) qb
+		vs pnaPbagebyCneg(bow) gura
+			erfgberCulfvpf(bow)
+			cpnyy(shapgvba()
+				bow.NffrzoylYvarneIrybpvgl = Irpgbe3.arj(zngu.enaqbz(-40, 40), zngu.enaqbz(150, 300), zngu.enaqbz(-40, 40))
+				bow.NffrzoylNathyneIrybpvgl = Irpgbe3.arj(zngu.enaqbz(-20, 20), zngu.enaqbz(-20, 20), zngu.enaqbz(-20, 20))
+			raq)
+		raq
+	raq
+raq)
+
+nezntrqqbaOhggba.ZbhfrOhggba1Pyvpx:Pbaarpg(shapgvba()
+	fgbcNyy()
+	vs abg uec be abg uec.Cnerag be abg punenpgre:VfQrfpraqnagBs(Jbexfcnpr) gura erghea raq
+	ybpny pbagebyyrqCnegf = {}
+	sbe _, bow va vcnvef(Jbexfcnpr:TrgQrfpraqnagf()) qb
+		vs pnaPbagebyCneg(bow) gura
+			erfgberCulfvpf(bow)
+			gnoyr.vafreg(pbagebyyrqCnegf, bow)
+			cpnyy(shapgvba()
+				bow.NffrzoylYvarneIrybpvgl = Irpgbe3.arj(zngu.enaqbz(-10, 10), 200, zngu.enaqbz(-10, 10))
+			raq)
+		raq
+	raq
+
+	gnfx.qrynl(1.5, shapgvba()
+		sbe _, bow va vcnvef(pbagebyyrqCnegf) qb
+			vs bow naq bow.Cnerag naq abg bow.Napuberq gura
+				cpnyy(shapgvba()
+					bow.NffrzoylYvarneIrybpvgl = Irpgbe3.arj(zngu.enaqbz(-30, 30), -400, zngu.enaqbz(-30, 30))
+				raq)
+			raq
+		raq
+	raq)
+raq)
+
+Jbexfcnpr.QrfpraqnagErzbivat:Pbaarpg(shapgvba(qrfpraqnag)
+	vs cnegQngn[qrfpraqnag] gura
+		cnegQngn[qrfpraqnag] = avy
+	raq
+raq)
+
+uhznabvq.Qvrq:Pbaarpg(shapgvba()
+	fgbcNyy()
+raq)
