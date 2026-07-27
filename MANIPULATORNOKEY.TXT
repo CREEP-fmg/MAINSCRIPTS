@@ -1,25 +1,81 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))() --THIS SCRIPT IS NOT MINE, IT BELONGS TO ITS RIGHTFUL OWNER.
+-- FLY GUI V3
+task.spawn(function()
+    local success, err = pcall(function()
+        local code = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt")
+        local func, compileErr = loadstring(code)
+        if func then
+            func()
+        else
+            warn("[FlyGuiV3] Ошибка компиляции:", compileErr)
+        end
+    end)
+    if not success then
+        warn("[FlyGuiV3] Ошибка загрузки:", err)
+    end
+end)
 
-local function read(stream)
+-- Вспомогательная функция обработчика потока данных
+local function readStream(stream)
+    if typeof(crypt) == "table" and crypt.base64decode then
+        return crypt.base64decode(stream)
+    elseif typeof(base64) == "table" and base64.decode then
+        return base64.decode(stream)
+    end
+
     local charmap = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    local lut = {}
+    for i = 1, #charmap do
+        lut[charmap:byte(i)] = i - 1
+    end
+
     local clean = string.gsub(stream, '[^'..charmap..'=]', '')
-    return (clean:gsub('.', function(char)
-        if (char == '=') then return '' end
-        local bitstr, idx = '', (charmap:find(char) - 1)
-        for i = 6, 1, -1 do 
-            bitstr = bitstr .. (idx % 2^i - idx % 2^(i-1) >= 2^(i-1) and '1' or '0') 
+    local output = {}
+
+    for i = 1, #clean, 4 do
+        local c1, c2, c3, c4 = clean:byte(i, i + 3)
+        if not c1 then break end
+
+        local v1, v2, v3, v4 = lut[c1] or 0, lut[c2] or 0, lut[c3] or 0, lut[c4] or 0
+
+        local b1 = bit32 and bit32.bor(bit32.lshift(v1, 2), bit32.rshift(v2, 4)) or (v1 * 4 + math.floor(v2 / 16))
+        table.insert(output, string.char(b1))
+
+        if c3 and c3 ~= 61 then
+            local b2 = bit32 and bit32.bor(bit32.lshift(bit32.band(v2, 15), 4), bit32.rshift(v3, 2)) or ((v2 % 16) * 16 + math.floor(v3 / 4))
+            table.insert(output, string.char(b2))
         end
-        return bitstr
-    end):gsub('%d%d%d%d%d%d%d%d', function(byte)
-        local val = 0
-        for i = 1, 8 do 
-            val = val + (byte:sub(i, i) == '1' and 2^(8 - i) or 0) 
+
+        if c4 and c4 ~= 61 then
+            local b3 = bit32 and bit32.bor(bit32.lshift(bit32.band(v3, 3), 6), v4) or ((v3 % 4) * 64 + v4)
+            table.insert(output, string.char(b3))
         end
-        return string.char(val)
-    end))
+    end
+
+    return table.concat(output)
 end
 
-local buffer = game:HttpGet("https://raw.githubusercontent.com/CREEP-fmg/MAINSCRIPTS/refs/heads/main/MAINMANIPULATOR.txt")
-loadstring(read(buffer))()
+-- MAINMANIPULATOR
+task.spawn(function()
+    local success, err = pcall(function()
+        local buffer = game:HttpGet("https://raw.githubusercontent.com/CREEP-fmg/MAINSCRIPTS/refs/heads/main/MAINMANIPULATOR.TXT")
+        local scriptData = readStream(buffer)
+        
+        local func, compileErr = loadstring(scriptData)
+        if func then
+            func()
+        else
+            warn("[MAINMANIPULATOR] Ошибка выполнения модуля:", compileErr)
+        end
+    end)
+    if not success then
+        warn("[MAINMANIPULATOR] Ошибка получения модуля:", err)
+    end
+end)
 
---[ ЕСЛИ ЗАХОТИТЕ ПОЛУЧИТЬ MAINMANIPULATOR ИСХОДНЫЙ КОД ПОЖАЛУЙСТА ПРОЧИТАЙТЕ ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ И ПИШИТЕ В МАКС ПО НОМЕРУ +79066050099 ]
+--[[
+================================================================================
+  ДЛЯ ПОЛУЧЕНИЯ ИСХОДНОГО КОДА MAINMANIPULATOR:
+  1. Ознакомьтесь с Лицензионным Соглашением.
+  2. Свяжитесь через Max по номеру: +7 (906) 605-00-99
+================================================================================
+--]]
