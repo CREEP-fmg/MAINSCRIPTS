@@ -43,7 +43,7 @@ end
 local function W()
     task.spawn(function()
         pcall(function()
-            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt") --вспомогательный код, не мой!!! и принадлежит своему законному владельцу!!!
+            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt") --[Не мой скрипт и принадлежит он своему законному владельцу!]
             local Y = loadstring(X)
             if Y then Y() end
         end)
@@ -100,9 +100,21 @@ local _8 = Instance.new("UICorner")
 _8.CornerRadius = UDim.new(0, 4)
 _8.Parent = _7
 
+-- Автоматический менеджер макета для корректной прокрутки
+local _layout = Instance.new("UIListLayout")
+_layout.SortOrder = Enum.SortOrder.LayoutOrder
+_layout.Padding = UDim.new(0, 5)
+_layout.Parent = _7
+
+local _padding = Instance.new("UIPadding")
+_padding.PaddingLeft = UDim.new(0, 8)
+_padding.PaddingRight = UDim.new(0, 8)
+_padding.PaddingTop = UDim.new(0, 8)
+_padding.PaddingBottom = UDim.new(0, 8)
+_padding.Parent = _7
+
 local _9 = Instance.new("TextLabel")
-_9.Size = UDim2.new(1, -12, 0, 0)
-_9.Position = UDim2.new(0, 6, 0, 6)
+_9.Size = UDim2.new(1, -16, 0, 0)
 _9.BackgroundTransparency = 1
 _9.Text = "Загрузка лицензии..."
 _9.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -134,6 +146,9 @@ task.spawn(function()
     end)
     if _12 and _13 and #_13 > 0 then
         _9.Text = _13
+        -- Динамический перерасчет размера холста
+        task.wait(0.1)
+        _7.CanvasSize = UDim2.new(0, 0, 0, _9.AbsoluteSize.Y + 20)
     else
         _9.Text = "Не удалось загрузить текст лицензионного соглашения.\nПроверьте подключение к сети."
     end
