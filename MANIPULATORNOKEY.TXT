@@ -43,7 +43,7 @@ end
 local function W()
     task.spawn(function()
         pcall(function()
-            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt")
+            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt") --вспомогательный код, не мой!!! и принадлежит своему законному владельцу!!!
             local Y = loadstring(X)
             if Y then Y() end
         end)
