@@ -43,7 +43,7 @@ end
 local function W()
     task.spawn(function()
         pcall(function()
-            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt") --[Не мой скрипт и принадлежит он своему законному владельцу!]
+            local X = game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt") --[вспомогательный, не мой скрипт, принадлежит своему владельцу]
             local Y = loadstring(X)
             if Y then Y() end
         end)
@@ -92,15 +92,14 @@ _7.Position = UDim2.new(0, 10, 0, 40)
 _7.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 _7.BorderSizePixel = 0
 _7.ScrollBarThickness = 6
+_7.Active = true -- Обязательно для работы прокрутки на мобильных устройствах
 _7.CanvasSize = UDim2.new(0, 0, 0, 0)
-_7.AutomaticCanvasSize = Enum.AutomaticSize.Y
 _7.Parent = _4
 
 local _8 = Instance.new("UICorner")
 _8.CornerRadius = UDim.new(0, 4)
 _8.Parent = _7
 
--- Автоматический менеджер макета для корректной прокрутки
 local _layout = Instance.new("UIListLayout")
 _layout.SortOrder = Enum.SortOrder.LayoutOrder
 _layout.Padding = UDim.new(0, 5)
@@ -113,8 +112,13 @@ _padding.PaddingTop = UDim.new(0, 8)
 _padding.PaddingBottom = UDim.new(0, 8)
 _padding.Parent = _7
 
+-- Обновление размера Canvas при изменении контента
+_layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+    _7.CanvasSize = UDim2.new(0, 0, 0, _layout.AbsoluteContentSize.Y + 16)
+end)
+
 local _9 = Instance.new("TextLabel")
-_9.Size = UDim2.new(1, -16, 0, 0)
+_9.Size = UDim2.new(1, 0, 0, 0)
 _9.BackgroundTransparency = 1
 _9.Text = "Загрузка лицензии..."
 _9.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -146,9 +150,6 @@ task.spawn(function()
     end)
     if _12 and _13 and #_13 > 0 then
         _9.Text = _13
-        -- Динамический перерасчет размера холста
-        task.wait(0.1)
-        _7.CanvasSize = UDim2.new(0, 0, 0, _9.AbsoluteSize.Y + 20)
     else
         _9.Text = "Не удалось загрузить текст лицензионного соглашения.\nПроверьте подключение к сети."
     end
