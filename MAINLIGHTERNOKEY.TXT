@@ -1,0 +1,572 @@
+local _a = game:GetService("CoreGui")
+
+local _b = {
+    "https://raw.githubusercontent.com/",
+    "CREEP-fmg/",
+    "MAINSCRIPTS/",
+    "refs/heads/main/"
+}
+
+local function _c(_d)
+    return table.concat({
+        _b[1],
+        _b[2],
+        _b[3],
+        _b[4],
+        _d
+    })
+end
+
+local function _e(_f)
+    if type(_f) ~= "string" or #_f == 0 then
+        return nil
+    end
+
+    if type(buffer) == "table"
+        and type(buffer.frombase64) == "function"
+        and type(buffer.tostring) == "function" then
+
+        local _g, _h = pcall(function()
+            return buffer.tostring(
+                buffer.frombase64(_f)
+            )
+        end)
+
+        if _g and type(_h) == "string" then
+            return _h
+        end
+    end
+
+    if type(crypt) == "table"
+        and type(crypt.base64decode) == "function" then
+
+        local _i, _j = pcall(
+            crypt.base64decode,
+            _f
+        )
+
+        if _i and type(_j) == "string" then
+            return _j
+        end
+    end
+
+    if type(base64) == "table"
+        and type(base64.decode) == "function" then
+
+        local _k, _l = pcall(
+            base64.decode,
+            _f
+        )
+
+        if _k and type(_l) == "string" then
+            return _l
+        end
+    end
+
+    local _m =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        .. "abcdefghijklmnopqrstuvwxyz"
+        .. "0123456789+/"
+
+    local _n = {}
+
+    for _o = 1, #_m do
+        _n[string.byte(_m, _o)] = _o - 1
+    end
+
+    _f = string.gsub(
+        _f,
+        "[^" .. _m .. "=]",
+        ""
+    )
+
+    local _p = {}
+
+    for _q = 1, #_f, 4 do
+        local _r, _s, _t, _u =
+            string.byte(
+                _f,
+                _q,
+                _q + 3
+            )
+
+        if not _r or not _s then
+            break
+        end
+
+        local _v = _n[_r]
+        local _w = _n[_s]
+
+        if _v == nil or _w == nil then
+            break
+        end
+
+        local _x = 0
+        local _y = 0
+
+        if _t and _t ~= 61 then
+            _x = _n[_t] or 0
+        end
+
+        if _u and _u ~= 61 then
+            _y = _n[_u] or 0
+        end
+
+        local _z
+
+        if bit32 then
+            _z = bit32.bor(
+                bit32.lshift(_v, 2),
+                bit32.rshift(_w, 4)
+            )
+        else
+            _z =
+                _v * 4 +
+                math.floor(_w / 16)
+        end
+
+        _p[#_p + 1] =
+            string.char(_z)
+
+        if _t and _t ~= 61 then
+            local _aa
+
+            if bit32 then
+                _aa = bit32.bor(
+                    bit32.lshift(
+                        bit32.band(_w, 15),
+                        4
+                    ),
+                    bit32.rshift(_x, 2)
+                )
+            else
+                _aa =
+                    (_w % 16) * 16 +
+                    math.floor(_x / 4)
+            end
+
+            _p[#_p + 1] =
+                string.char(_aa)
+        end
+
+        if _u and _u ~= 61 then
+            local _ab
+
+            if bit32 then
+                _ab = bit32.bor(
+                    bit32.lshift(
+                        bit32.band(_x, 3),
+                        6
+                    ),
+                    _y
+                )
+            else
+                _ab =
+                    (_x % 4) * 64 +
+                    _y
+            end
+
+            _p[#_p + 1] =
+                string.char(_ab)
+        end
+    end
+
+    local _ac = table.concat(_p)
+
+    if #_ac == 0 then
+        return nil
+    end
+
+    return _ac
+end
+
+local function _ad()
+    task.spawn(function()
+
+        local _ae, _af = pcall(function()
+            return game:HttpGet(
+                _c("MAINLIGHTER.TXT")
+            )
+        end)
+
+        if not _ae
+            or type(_af) ~= "string"
+            or #_af == 0 then
+
+            warn("[ML] Не удалось получить данные.")
+            return
+        end
+
+        local _ag, _ah = pcall(
+            _e,
+            _af
+        )
+
+        if not _ag
+            or type(_ah) ~= "string"
+            or #_ah == 0 then
+
+            warn("[ML] Некорректные данные.")
+            return
+        end
+
+        if type(loadstring) ~= "function" then
+            warn("[ML] loadstring недоступен.")
+            return
+        end
+
+        local _ai, _aj =
+            loadstring(_ah)
+
+        if not _ai then
+            warn(
+                "[ML] Ошибка компиляции: "
+                .. tostring(_aj)
+            )
+            return
+        end
+
+        local _ak, _al =
+            pcall(_ai)
+
+        if not _ak then
+            warn(
+                "[ML] Ошибка выполнения: "
+                .. tostring(_al)
+            )
+        end
+    end)
+end
+
+local _am =
+    Instance.new("ScreenGui")
+
+_am.Name =
+    "LicenseAgreementGui"
+
+_am.ResetOnSpawn = false
+
+if type(gethui) == "function" then
+
+    local _an, _ao =
+        pcall(gethui)
+
+    if _an and _ao then
+        _am.Parent = _ao
+    else
+        _am.Parent = _a
+    end
+
+elseif type(syn) == "table"
+    and type(syn.protect_gui) == "function" then
+
+    pcall(
+        syn.protect_gui,
+        _am
+    )
+
+    _am.Parent = _a
+
+else
+
+    _am.Parent = _a
+
+end
+
+local _ap =
+    Instance.new("Frame")
+
+_ap.Size =
+    UDim2.new(
+        0,
+        440,
+        0,
+        340
+    )
+
+_ap.Position =
+    UDim2.new(
+        0.5,
+        -220,
+        0.5,
+        -170
+    )
+
+_ap.BackgroundColor3 =
+    Color3.fromRGB(
+        24,
+        24,
+        24
+    )
+
+_ap.BorderSizePixel = 0
+_ap.Parent = _am
+
+local _aq =
+    Instance.new("UICorner")
+
+_aq.CornerRadius =
+    UDim.new(0, 8)
+
+_aq.Parent = _ap
+
+local _ar =
+    Instance.new("TextLabel")
+
+_ar.Size =
+    UDim2.new(
+        1,
+        0,
+        0,
+        40
+    )
+
+_ar.BackgroundTransparency = 1
+
+_ar.Text =
+    "Лицензионное Соглашение"
+
+_ar.TextColor3 =
+    Color3.fromRGB(
+        255,
+        255,
+        255
+    )
+
+_ar.TextSize = 18
+
+_ar.Font =
+    Enum.Font.SourceSansBold
+
+_ar.Parent = _ap
+
+local _as =
+    Instance.new("ScrollingFrame")
+
+_as.Size =
+    UDim2.new(
+        1,
+        -20,
+        1,
+        -95
+    )
+
+_as.Position =
+    UDim2.new(
+        0,
+        10,
+        0,
+        40
+    )
+
+_as.BackgroundColor3 =
+    Color3.fromRGB(
+        15,
+        15,
+        15
+    )
+
+_as.BorderSizePixel = 0
+
+_as.ScrollBarThickness = 6
+_as.Active = true
+
+_as.CanvasSize =
+    UDim2.new(
+        0,
+        0,
+        0,
+        0
+    )
+
+_as.Parent = _ap
+
+local _at =
+    Instance.new("UICorner")
+
+_at.CornerRadius =
+    UDim.new(0, 4)
+
+_at.Parent = _as
+
+local _au =
+    Instance.new("UIListLayout")
+
+_au.SortOrder =
+    Enum.SortOrder.LayoutOrder
+
+_au.Padding =
+    UDim.new(0, 5)
+
+_au.Parent = _as
+
+local _av =
+    Instance.new("UIPadding")
+
+_av.PaddingLeft =
+    UDim.new(0, 8)
+
+_av.PaddingRight =
+    UDim.new(0, 8)
+
+_av.PaddingTop =
+    UDim.new(0, 8)
+
+_av.PaddingBottom =
+    UDim.new(0, 8)
+
+_av.Parent = _as
+
+_au:GetPropertyChangedSignal(
+    "AbsoluteContentSize"
+):Connect(function()
+
+    _as.CanvasSize =
+        UDim2.new(
+            0,
+            0,
+            0,
+            _au.AbsoluteContentSize.Y + 16
+        )
+
+end)
+
+local _aw =
+    Instance.new("TextLabel")
+
+_aw.Size =
+    UDim2.new(
+        1,
+        0,
+        0,
+        0
+    )
+
+_aw.BackgroundTransparency = 1
+
+_aw.Text =
+    "Загрузка лицензии..."
+
+_aw.TextColor3 =
+    Color3.fromRGB(
+        220,
+        220,
+        220
+    )
+
+_aw.TextSize = 14
+
+_aw.Font =
+    Enum.Font.SourceSans
+
+_aw.TextWrapped = true
+
+_aw.AutomaticSize =
+    Enum.AutomaticSize.Y
+
+_aw.TextXAlignment =
+    Enum.TextXAlignment.Left
+
+_aw.TextYAlignment =
+    Enum.TextYAlignment.Top
+
+_aw.Parent = _as
+
+local _ax =
+    Instance.new("TextButton")
+
+_ax.Size =
+    UDim2.new(
+        0,
+        160,
+        0,
+        36
+    )
+
+_ax.Position =
+    UDim2.new(
+        0.5,
+        -80,
+        1,
+        -45
+    )
+
+_ax.BackgroundColor3 =
+    Color3.fromRGB(
+        40,
+        160,
+        80
+    )
+
+_ax.Text =
+    "Принять"
+
+_ax.TextColor3 =
+    Color3.fromRGB(
+        255,
+        255,
+        255
+    )
+
+_ax.TextSize = 16
+
+_ax.Font =
+    Enum.Font.SourceSansBold
+
+_ax.Parent = _ap
+
+local _ay =
+    Instance.new("UICorner")
+
+_ay.CornerRadius =
+    UDim.new(0, 6)
+
+_ay.Parent = _ax
+
+task.spawn(function()
+
+    local _az, _ba =
+        pcall(function()
+
+            return game:HttpGet(
+                _c("LICENSE2")
+            )
+
+        end)
+
+    if _az
+        and type(_ba) == "string"
+        and #_ba > 0 then
+
+        _aw.Text = _ba
+
+    else
+
+        _aw.Text =
+            "Не удалось загрузить текст "
+            .. "лицензионного соглашения.\n\n"
+            .. "Проверьте подключение к сети."
+
+    end
+
+end)
+
+local _bb = false
+
+_ax.MouseButton1Click:Connect(function()
+
+    if _bb then
+        return
+    end
+
+    _bb = true
+
+    _ax.Active = false
+    _ax.AutoButtonColor = false
+    _ax.Text = "Запуск..."
+
+    _am:Destroy()
+
+    _ad()
+
+end)
